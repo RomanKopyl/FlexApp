@@ -1,13 +1,15 @@
 
 import React, { PropsWithChildren, createContext, useEffect, useState } from "react";
-import { darkTheme, lightTheme } from "../constants";
 import { Appearance } from "react-native";
+import { darkTheme, lightTheme } from "../constants";
+
+export type ColorPallete = typeof darkTheme;
 
 export type Data = {
   isSwitchOn: boolean,
   setIsSwitchOn: (value: boolean) => void,
-  currentTheme: any,
-  setCurrentTheme: (value: any) => void,
+  currentTheme: ColorPallete,
+  setCurrentTheme: (value: ColorPallete) => void,
 }
 
 const ThemeContext = createContext<Data | undefined>(undefined);

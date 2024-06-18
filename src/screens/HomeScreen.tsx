@@ -1,7 +1,8 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native'
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { ThemeContext } from '../ThemeContext';
 import Header from '../components/Header';
+import UserSlider from '../components/UserSlider';
 
 const HomeScreen = () => {
   const data = useContext(ThemeContext);
@@ -16,6 +17,7 @@ const HomeScreen = () => {
         backgroundColor={data?.currentTheme.containerBackgroundColor}
       />
       <Header />
+      <UserSlider />
 
     </SafeAreaView>
   )

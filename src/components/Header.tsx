@@ -25,8 +25,8 @@ const Header = () => {
       >
         {
           data?.isSwitchOn
-            ? <Moon fill='white' />
-            : <Sun />
+            ? <Moon fill={data?.currentTheme.primeColor} />
+            : <Sun fill={data?.currentTheme.primeColor} />
         }
       </Pressable>
     </View>
