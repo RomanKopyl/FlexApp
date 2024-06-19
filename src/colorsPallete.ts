@@ -35,11 +35,12 @@ export const getColorsFromType = (colorType: ColorType) => {
   }
 }
 
-export const darkTheme = (colors: ColorPallete = COLORS[0]) => {
+export const getDarkThemeFromType = (colors: ColorPallete = COLORS[0]) => {
   return {
     primeColor: colors.fouthColor,
     secondaryColor: colors.thirdColor,
-    containerBackgroundColor: colors.primeColor,
+    animationColor: colors.primeColor,
+    containerBackgroundColor: 'white',
     textColor: colors.fouthColor,
     minimumTrackTintColor: colors.secondaryColor,
     maximumTrackTintColor: colors.fouthColor,
@@ -47,10 +48,11 @@ export const darkTheme = (colors: ColorPallete = COLORS[0]) => {
   };
 };
 
-export const lightTheme = (colors: ColorPallete = COLORS[0]) => {
+export const getLightThemeFromType = (colors: ColorPallete = COLORS[0]) => {
   return {
     primeColor: colors.primeColor,
     secondaryColor: colors.secondaryColor,
+    animationColor: colors.primeColor,
     containerBackgroundColor: 'white',
     textColor: colors.primeColor,
     minimumTrackTintColor: colors.primeColor,

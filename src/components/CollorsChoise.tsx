@@ -1,6 +1,6 @@
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useContext } from 'react'
-import { ColorType, ThemeContext } from '../ThemeContext'
+import React, { useContext } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ColorType, ThemeContext } from '../ThemeContext';
 import { COLORS } from '../colorsPallete';
 
 const CollorsChoise = () => {
@@ -23,15 +23,10 @@ const CollorsChoise = () => {
               <TouchableOpacity
                 key={index}
                 style={[
-                  styles.colorButton, {
-                    backgroundColor: item.primeColor,
-                    borderColor: isActive ? 'yellow' : 'white',
-                    borderWidth: 2,
-                    marginHorizontal: 2,
-                  }]}
+                  styles.colorButton, { backgroundColor: item.primeColor }]}
                 onPress={() => {
                   console.log('NEW COLOR', colors[index]);
-                  data?.setCurrentColorType(colors[index] as ColorType);
+                  data?.setCurrentColorsType(colors[index] as ColorType);
                 }}
               />
             );
@@ -58,5 +53,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 60,
     height: 60,
+    borderColor: 'white',
+    borderWidth: 2,
+    marginHorizontal: 2,
   },
 });

@@ -1,7 +1,7 @@
 
 import React, { PropsWithChildren, createContext, useEffect, useState } from "react";
 import { Appearance } from "react-native";
-import { COLORS, darkTheme as getDarkThemeFromType, getColorsFromType, lightTheme as getLightThemeFromType } from "./colorsPallete";
+import { COLORS, getColorsFromType, getDarkThemeFromType, getLightThemeFromType } from "./colorsPallete";
 
 const colors = getDarkThemeFromType();
 export type ColorTheme = typeof colors;
@@ -13,7 +13,7 @@ export type Data = {
   setIsSwitchOn: (value: boolean) => void,
   currentTheme: ColorTheme,
   setCurrentThemeType: (value: ColorThemeType) => void,
-  setCurrentColorType: (value: ColorType) => void,
+  setCurrentColorsType: (value: ColorType) => void,
 };
 
 export enum ColorType {
@@ -45,6 +45,7 @@ const ThemeProvider = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const newTheme = getColorsFromType(currentColorsType);
 
+    // Change current Theme only here every time, when changing currentColorsType or currentThemeType
     if (currentThemeType === 'darkTheme') {
       setCurrentTheme(getDarkThemeFromType(newTheme));
     } else {
@@ -59,7 +60,7 @@ const ThemeProvider = ({ children }: PropsWithChildren) => {
       setIsSwitchOn,
       currentTheme,
       setCurrentThemeType,
-      setCurrentColorType: setCurrentColorsType,
+      setCurrentColorsType,
     }}>
       {
         children

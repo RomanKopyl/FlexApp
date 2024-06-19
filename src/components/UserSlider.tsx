@@ -9,6 +9,7 @@ const UserSlider = () => {
   const [size, setSize] = useState(70);
 
   const onValueChange = (value: number) => {
+    // Change icon size
     const newSize = 200 * value;
     setSize(newSize);
   }
