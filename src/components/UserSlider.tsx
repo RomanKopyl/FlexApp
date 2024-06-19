@@ -1,8 +1,8 @@
+import Slider from '@react-native-community/slider';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { User } from '../../res';
 import { ThemeContext } from '../ThemeContext';
-import Slider from '@react-native-community/slider';
 
 const UserSlider = () => {
   const data = useContext(ThemeContext);
@@ -15,13 +15,8 @@ const UserSlider = () => {
   }
 
   return (
-    <View style={{
-      alignItems: 'center'
-    }}>
-      <View style={{
-        height: 250,
-        justifyContent: 'center'
-      }}>
+    <View style={styles.container}>
+      <View style={styles.iconContainer}>
         <User
           width={size}
           height={size}
@@ -46,9 +41,11 @@ export default UserSlider
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: 200,
-    height: 200,
+    alignItems: 'center',
+  },
+  iconContainer: {
+    height: 250,
+    justifyContent: 'center',
   },
   slider: {
     width: 200,

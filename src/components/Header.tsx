@@ -1,10 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { Animated, Dimensions, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Moon, Sun } from '../../res';
 import { ThemeContext } from '../ThemeContext';
-
-const windowWidth = Dimensions.get('window').width;
-const animationDuration = 300;
 
 const Header = () => {
   const data = useContext(ThemeContext);
@@ -31,21 +28,14 @@ const Header = () => {
     const toValue = isMoving ? 5 : 1;
     Animated.timing(animation, {
       toValue,
-      duration: animationDuration,
+      duration: 300,
       useNativeDriver: false,
     }).start();
   };
 
   return (
-    <>
-      <View
-        style={{
-          position: 'absolute',
-          alignItems: 'flex-end',
-          justifyContent: 'flex-end',
-          width: windowWidth - 22,
-          height: 100,
-        }}>
+    <View style={styles.container}>
+      <View style={styles.animatedContainer}>
         <Animated.View
           style={[
             styles.box,
@@ -59,22 +49,22 @@ const Header = () => {
           ]}
         />
       </View>
-      <View style={styles.container}>
-        <Text style={[styles.title, { color: data?.currentTheme.textColor }]}>
-          FlexApp
-        </Text>
-        <Pressable
-          style={styles.themeButton}
-          onPress={toggleSwitch}
-        >
-          {
-            data?.isSwitchOn
-              ? <Moon fill={data?.currentTheme.primeColor} />
-              : <Sun fill={data?.currentTheme.primeColor} />
-          }
-        </Pressable>
-      </View>
-    </>
+
+      <Text style={[styles.title, { color: data?.currentTheme.textColor }]}>
+        FlexApp
+      </Text>
+
+      <Pressable
+        style={styles.themeButton}
+        onPress={toggleSwitch}
+      >
+        {
+          data?.isSwitchOn
+            ? <Moon fill={data?.currentTheme.primeColor} />
+            : <Sun fill={data?.currentTheme.primeColor} />
+        }
+      </Pressable>
+    </View>
   )
 }
 
@@ -95,6 +85,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     top: 18
+  },
+  animatedContainer: {
+    position: 'absolute',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    right: 23,
+    top: 31,
   },
   box: {
     width: 10,

@@ -17,8 +17,6 @@ const CollorsChoise = () => {
       }}>
         {
           COLORS.map((item, index) => {
-            const isActive = data?.currentTheme.primeColor === item.primeColor;
-
             return (
               <TouchableOpacity
                 key={index}
