@@ -9,7 +9,6 @@ const UserSlider = () => {
   const [size, setSize] = useState(70);
 
   const onValueChange = (value: number) => {
-    console.log(value);
     const newSize = 200 * value;
     setSize(newSize);
   }

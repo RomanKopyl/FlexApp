@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { darkTheme, lightTheme } from '../../constants';
 import { Moon, Sun } from '../../res';
 import { ThemeContext } from '../ThemeContext';
 
@@ -10,8 +9,8 @@ const Header = () => {
   const toggleSwitch = () => {
     const newIsSwitchOn = !data?.isSwitchOn;
     data?.setIsSwitchOn(newIsSwitchOn);
-    const newTheme = newIsSwitchOn ? darkTheme : lightTheme;
-    data?.setCurrentTheme(newTheme);
+    const newThemeType = newIsSwitchOn ? 'darkTheme' : 'lightTheme';
+    data?.setCurrentThemeType(newThemeType);
   };
 
   return (
