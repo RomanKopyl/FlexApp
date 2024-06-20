@@ -1,12 +1,7 @@
 
-import React, { useContext } from 'react';
-import {
-  SafeAreaView,
-  StatusBar
-} from 'react-native';
+import React from 'react';
 
-import Header from './src/components/Header';
-import { ThemeContext, ThemeProvider } from './src/ThemeContext';
+import { ThemeProvider } from './src/ThemeContext';
 import HomeScreen from './src/screens/HomeScreen';
 
 
