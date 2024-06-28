@@ -12,18 +12,14 @@ const CollorsChoise = () => {
       <Text style={[styles.title, { color: data?.currentTheme.textColor }]}>
         Choose the colors theme
       </Text>
-      <View style={{
-        flexDirection: 'row',
-      }}>
+      <View style={styles.themeContainer}>
         {
           COLORS.map((item, index) => {
             return (
               <TouchableOpacity
                 key={index}
-                style={[
-                  styles.colorButton, { backgroundColor: item.primeColor }]}
+                style={[styles.colorButton, { backgroundColor: item.primeColor }]}
                 onPress={() => {
-                  console.log('NEW COLOR', colors[index]);
                   data?.setCurrentColorsType(colors[index] as ColorType);
                 }}
               />
@@ -46,6 +42,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     textAlign: 'center',
+  },
+  themeContainer: {
+    flexDirection: 'row',
   },
   colorButton: {
     marginTop: 10,
